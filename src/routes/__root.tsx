@@ -77,10 +77,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Everleaf Landscapes — Garden Design & Build in the UK" },
-      { name: "description", content: "Award-winning landscape design, patios, lawns, fencing and full garden transformations. Free on-site consultation across the UK." },
-      { property: "og:title", content: "Everleaf Landscapes — Garden Design & Build" },
-      { property: "og:description", content: "Award-winning landscape design and build. Free on-site consultation." },
+      { title: "Greenfield Landscaping — Premium Garden Design & Build | Berkshire" },
+      { name: "description", content: "Award-winning landscaping across Berkshire and the Home Counties. Luxury patios, driveways, gardens and outdoor living. Free no-obligation quotes." },
+      { property: "og:title", content: "Greenfield Landscaping — Premium Outdoor Spaces" },
+      { property: "og:description", content: "Luxury garden design and build. 250+ projects delivered. Free on-site quotes across Berkshire." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -91,7 +91,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap",
       },
     ],
   }),
