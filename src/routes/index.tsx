@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Link, createFileRoute } from "@tanstack/react-router";
+import { useEffect, useMemo, useState } from "react";
 import {
   ArrowRight,
   Phone,
@@ -45,8 +45,6 @@ import proj3 from "@/assets/project-3.jpg";
 import proj4 from "@/assets/project-4.jpg";
 import proj5 from "@/assets/project-5.jpg";
 import proj6 from "@/assets/project-6.jpg";
-import beforeImg from "@/assets/before.jpg";
-import afterImg from "@/assets/after.jpg";
 import teamImg from "@/assets/team.jpg";
 import whyImg from "@/assets/why-choose.jpg";
 
@@ -67,7 +65,6 @@ function Home() {
         <SocialProof />
         <Services />
         <Projects />
-        <BeforeAfter />
         <WhyChoose />
         <Process />
         <Testimonials />
@@ -111,16 +108,16 @@ function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 md:px-8 md:py-4">
-        <a href="#home" className="flex items-center gap-2.5">
+        <a href="#home" className="flex items-center gap-3">
           <span
-            className={`grid h-10 w-10 place-items-center rounded-lg transition-colors ${
+            className={`grid h-12 w-12 place-items-center rounded-xl transition-colors ${
               scrolled ? "bg-primary text-primary-foreground" : "bg-white/15 text-white backdrop-blur"
             }`}
           >
-            <Leaf className="h-5 w-5" strokeWidth={2} />
+            <Leaf className="h-6 w-6" strokeWidth={2} />
           </span>
           <span
-            className={`text-lg font-extrabold tracking-tight ${
+            className={`text-xl font-extrabold tracking-tight md:text-2xl ${
               scrolled ? "text-foreground" : "text-white"
             }`}
           >
@@ -158,7 +155,7 @@ function Header() {
           <button
             aria-label="Menu"
             onClick={() => setOpen(true)}
-            className={`grid h-10 w-10 place-items-center rounded-lg lg:hidden ${
+            className={`grid h-12 w-12 place-items-center rounded-xl lg:hidden ${
               scrolled ? "bg-secondary text-foreground" : "bg-white/15 text-white backdrop-blur"
             }`}
           >
@@ -169,7 +166,7 @@ function Header() {
       {open && (
         <div className="fixed inset-0 z-[60] bg-charcoal/95 backdrop-blur-lg lg:hidden">
           <div className="flex items-center justify-between px-5 py-4">
-            <span className="text-lg font-extrabold text-white">Greenfield<span className="text-accent">.</span></span>
+            <span className="text-xl font-extrabold text-white md:text-2xl">Greenfield<span className="text-accent">.</span></span>
             <button aria-label="Close" onClick={() => setOpen(false)} className="grid h-10 w-10 place-items-center rounded-lg bg-white/10 text-white">
               <X className="h-5 w-5" />
             </button>
@@ -420,6 +417,17 @@ const services = [
   { title: "Commercial", desc: "Landscaping for offices, developments and estates.", img: svcCommercial, Icon: Building2 },
 ];
 
+const serviceRoutes: Record<string, string> = {
+  "Garden Design": "/services/garden-design",
+  "Patios & Paving": "/services/patios-paving",
+  Driveways: "/services/driveways",
+  "Artificial Grass": "/services/artificial-grass",
+  Fencing: "/services/fencing",
+  Decking: "/services/decking",
+  "Outdoor Living": "/services/outdoor-living-spaces",
+  Commercial: "/services/commercial-landscaping",
+};
+
 function Services() {
   return (
     <section id="services" className="relative bg-sand py-24 md:py-32">
@@ -431,9 +439,10 @@ function Services() {
         />
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((s) => (
-            <article
+            <Link
               key={s.title}
-              className="group relative overflow-hidden rounded-2xl bg-card ring-1 ring-black/5 shadow-card transition duration-500 hover:-translate-y-1.5 hover:shadow-elegant"
+              to={serviceRoutes[s.title] ?? "/services"}
+              className="group relative block overflow-hidden rounded-2xl bg-card ring-1 ring-black/5 shadow-card transition duration-500 hover:-translate-y-1.5 hover:shadow-elegant"
             >
               <div className="relative aspect-[4/5] overflow-hidden">
                 <img
@@ -456,7 +465,7 @@ function Services() {
                   </span>
                 </div>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>
@@ -473,6 +482,14 @@ const projectData = [
   { title: "Outdoor Entertainment Area", location: "Bracknell", tag: "Gardens", value: "£56,000", summary: "Pergola, fire pit lounge and outdoor kitchen for year-round use.", img: proj3 },
   { title: "Corporate HQ Landscape", location: "Slough", tag: "Commercial", value: "£120,000", summary: "Complete grounds renovation for a Grade-A office development.", img: proj4 },
 ];
+const projectRoutes: Record<string, string> = {
+  "Luxury Garden Transformation": "/projects/luxury-garden-transformation",
+  "Modern Porcelain Patio": "/projects/contemporary-porcelain-patio",
+  "Family-Friendly Garden Design": "/projects/family-garden-renovation",
+  "Premium Resin Driveway": "/projects/premium-resin-driveway",
+  "Outdoor Entertainment Area": "/projects/outdoor-entertainment-space",
+  "Corporate HQ Landscape": "/projects/commercial-courtyard-upgrade",
+};
 const filters = ["All", "Patios", "Driveways", "Gardens", "Commercial"];
 
 function Projects() {
@@ -516,9 +533,10 @@ function Projects() {
               "md:col-span-6",
             ];
             return (
-              <article
+              <Link
                 key={p.title}
-                className={`group relative overflow-hidden rounded-2xl ring-1 ring-black/5 shadow-card ${patterns[i % patterns.length]}`}
+                to={projectRoutes[p.title] ?? "/projects"}
+                className={`group relative block overflow-hidden rounded-2xl ring-1 ring-black/5 shadow-card ${patterns[i % patterns.length]}`}
               >
                 <img
                   src={p.img}
@@ -539,87 +557,9 @@ function Projects() {
                     {p.summary}
                   </p>
                 </div>
-              </article>
+              </Link>
             );
           })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- Before / After ---------------- */
-function BeforeAfter() {
-  const [pos, setPos] = useState(50);
-  const ref = useRef<HTMLDivElement>(null);
-  const drag = useRef(false);
-
-  const move = (clientX: number) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const p = ((clientX - rect.left) / rect.width) * 100;
-    setPos(Math.max(0, Math.min(100, p)));
-  };
-
-  useEffect(() => {
-    const onMove = (e: MouseEvent) => drag.current && move(e.clientX);
-    const onTouch = (e: TouchEvent) => drag.current && move(e.touches[0].clientX);
-    const stop = () => (drag.current = false);
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("touchmove", onTouch);
-    window.addEventListener("mouseup", stop);
-    window.addEventListener("touchend", stop);
-    return () => {
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("touchmove", onTouch);
-      window.removeEventListener("mouseup", stop);
-      window.removeEventListener("touchend", stop);
-    };
-  }, []);
-
-  return (
-    <section className="bg-sand py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-5 md:px-8">
-        <SectionHeader
-          eyebrow="Transformations"
-          title="See The Difference"
-          intro="Real transformations delivered for real clients. Drag the slider to reveal the before and after."
-        />
-        <div
-          ref={ref}
-          className="relative mt-14 aspect-[16/10] w-full select-none overflow-hidden rounded-2xl shadow-elegant ring-1 ring-black/10"
-        >
-          <img src={afterImg} alt="After" className="absolute inset-0 h-full w-full object-cover" />
-          <div
-            className="absolute inset-y-0 left-0 overflow-hidden"
-            style={{ width: `${pos}%` }}
-          >
-            <img
-              src={beforeImg}
-              alt="Before"
-              className="absolute inset-y-0 left-0 h-full w-screen max-w-none object-cover"
-              style={{ width: ref.current?.clientWidth || "100%" }}
-            />
-            <div className="absolute left-4 top-4 rounded-full bg-charcoal/80 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white backdrop-blur">
-              Before
-            </div>
-          </div>
-          <div className="absolute right-4 top-4 rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary-foreground">
-            After
-          </div>
-          <div
-            className="absolute inset-y-0 z-10 w-1 cursor-ew-resize bg-white shadow-elegant"
-            style={{ left: `calc(${pos}% - 2px)` }}
-            onMouseDown={() => (drag.current = true)}
-            onTouchStart={() => (drag.current = true)}
-          >
-            <div className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 grid h-12 w-12 place-items-center rounded-full bg-white shadow-elegant ring-2 ring-primary">
-              <div className="flex items-center gap-0.5 text-primary">
-                <ChevronLeft className="h-4 w-4" />
-                <ChevronRight className="h-4 w-4" />
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

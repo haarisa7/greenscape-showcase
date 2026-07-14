@@ -10,33 +10,89 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesIndexRouteImport } from './routes/services/index'
+import { Route as ProjectsIndexRouteImport } from './routes/projects/index'
+import { Route as ServicesServiceSlugRouteImport } from './routes/services/$serviceSlug'
+import { Route as ProjectsProjectSlugRouteImport } from './routes/projects/$projectSlug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
+  id: '/projects/',
+  path: '/projects/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesServiceSlugRoute = ServicesServiceSlugRouteImport.update({
+  id: '/services/$serviceSlug',
+  path: '/services/$serviceSlug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsProjectSlugRoute = ProjectsProjectSlugRouteImport.update({
+  id: '/projects/$projectSlug',
+  path: '/projects/$projectSlug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/projects/$projectSlug': typeof ProjectsProjectSlugRoute
+  '/services/$serviceSlug': typeof ServicesServiceSlugRoute
+  '/projects/': typeof ProjectsIndexRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/projects/$projectSlug': typeof ProjectsProjectSlugRoute
+  '/services/$serviceSlug': typeof ServicesServiceSlugRoute
+  '/projects': typeof ProjectsIndexRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/projects/$projectSlug': typeof ProjectsProjectSlugRoute
+  '/services/$serviceSlug': typeof ServicesServiceSlugRoute
+  '/projects/': typeof ProjectsIndexRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/projects/$projectSlug'
+    | '/services/$serviceSlug'
+    | '/projects/'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/projects/$projectSlug'
+    | '/services/$serviceSlug'
+    | '/projects'
+    | '/services'
+  id:
+    | '__root__'
+    | '/'
+    | '/projects/$projectSlug'
+    | '/services/$serviceSlug'
+    | '/projects/'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ProjectsProjectSlugRoute: typeof ProjectsProjectSlugRoute
+  ServicesServiceSlugRoute: typeof ServicesServiceSlugRoute
+  ProjectsIndexRoute: typeof ProjectsIndexRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,12 +104,54 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/': {
+      id: '/projects/'
+      path: '/projects'
+      fullPath: '/projects/'
+      preLoaderRoute: typeof ProjectsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/$serviceSlug': {
+      id: '/services/$serviceSlug'
+      path: '/services/$serviceSlug'
+      fullPath: '/services/$serviceSlug'
+      preLoaderRoute: typeof ServicesServiceSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/$projectSlug': {
+      id: '/projects/$projectSlug'
+      path: '/projects/$projectSlug'
+      fullPath: '/projects/$projectSlug'
+      preLoaderRoute: typeof ProjectsProjectSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ProjectsProjectSlugRoute: ProjectsProjectSlugRoute,
+  ServicesServiceSlugRoute: ServicesServiceSlugRoute,
+  ProjectsIndexRoute: ProjectsIndexRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
