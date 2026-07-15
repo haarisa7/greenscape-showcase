@@ -562,6 +562,15 @@ function Projects() {
             );
           })}
         </div>
+
+        <div className="mt-10 flex justify-center">
+          <Link
+            to="/projects"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft transition hover:brightness-110"
+          >
+            View All Projects <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
       </div>
     </section>
   );
