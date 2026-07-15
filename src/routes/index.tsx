@@ -30,23 +30,24 @@ import {
   Car,
 } from "lucide-react";
 
-import hero from "@/assets/hero-greenfield.jpg";
-import svcDesign from "@/assets/service-design.jpg";
-import svcPaving from "@/assets/service-paving.jpg";
-import svcDriveway from "@/assets/service-driveway.jpg";
-import svcArtificial from "@/assets/service-artificial.jpg";
-import svcFencing from "@/assets/service-fencing.jpg";
-import svcDecking from "@/assets/service-decking.jpg";
-import svcOutdoor from "@/assets/service-outdoor.jpg";
-import svcCommercial from "@/assets/service-commercial.jpg";
-import proj1 from "@/assets/project-1.jpg";
-import proj2 from "@/assets/project-2.jpg";
-import proj3 from "@/assets/project-3.jpg";
-import proj4 from "@/assets/project-4.jpg";
-import proj5 from "@/assets/project-5.jpg";
-import proj6 from "@/assets/project-6.jpg";
-import teamImg from "@/assets/team.jpg";
-import whyImg from "@/assets/why-choose.jpg";
+import hero from "@/assets/site/hero-greenfield.jpg";
+import svcDesign from "@/assets/services/design.jpg";
+import svcPaving from "@/assets/services/paving.jpg";
+import svcDriveway from "@/assets/services/driveway.jpg";
+import svcArtificial from "@/assets/services/artificial.jpg";
+import svcFencing from "@/assets/services/fencing.jpg";
+import svcDecking from "@/assets/services/decking.jpg";
+import svcOutdoor from "@/assets/services/outdoor.jpg";
+import svcCommercial from "@/assets/services/commercial.jpg";
+import ctaBackground from "@/assets/site/hero-garden.jpg";
+import teamImg from "@/assets/site/team.jpg";
+import whyImg from "@/assets/site/why-choose.jpg";
+import lgtAfter2 from "@/assets/projects/luxury-garden-transformation/after-2.jpg";
+import cppAfter from "@/assets/projects/contemporary-porcelain-patio/after.png";
+import fgrAfter from "@/assets/projects/family-garden-renovation/after.png";
+import prdAfter1 from "@/assets/projects/premium-resin-driveway/after-1.jpg";
+import oesAfter from "@/assets/projects/outdoor-entertainment-space/after.png";
+import ccuAfter1 from "@/assets/projects/commercial-courtyard-upgrade/after-1.jpg";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -475,12 +476,12 @@ function Services() {
 
 /* ---------------- Projects ---------------- */
 const projectData = [
-  { title: "Luxury Garden Transformation", location: "Ascot, Berkshire", tag: "Gardens", value: "£68,000", summary: "Full redesign with porcelain terrace, planted borders and outdoor kitchen.", img: proj1 },
-  { title: "Modern Porcelain Patio", location: "Windsor", tag: "Patios", value: "£24,500", summary: "Contemporary porcelain patio with integrated seating and lighting.", img: proj5 },
-  { title: "Family-Friendly Garden Design", location: "Reading", tag: "Gardens", value: "£42,000", summary: "Playful zoning with lawn, decking and secure planted borders.", img: proj2 },
-  { title: "Premium Resin Driveway", location: "Maidenhead", tag: "Driveways", value: "£18,900", summary: "Sleek resin-bound driveway with clipped topiary and lighting.", img: proj6 },
-  { title: "Outdoor Entertainment Area", location: "Bracknell", tag: "Gardens", value: "£56,000", summary: "Pergola, fire pit lounge and outdoor kitchen for year-round use.", img: proj3 },
-  { title: "Corporate HQ Landscape", location: "Slough", tag: "Commercial", value: "£120,000", summary: "Complete grounds renovation for a Grade-A office development.", img: proj4 },
+  { title: "Luxury Garden Transformation", location: "Ascot, Berkshire", tag: "Gardens", value: "£68,000", summary: "Full redesign with porcelain terrace, planted borders and outdoor kitchen.", img: lgtAfter2 },
+  { title: "Modern Porcelain Patio", location: "Windsor", tag: "Patios", value: "£24,500", summary: "Contemporary porcelain patio with integrated seating and lighting.", img: cppAfter },
+  { title: "Family-Friendly Garden Design", location: "Reading", tag: "Gardens", value: "£42,000", summary: "Playful zoning with lawn, decking and secure planted borders.", img: fgrAfter },
+  { title: "Premium Resin Driveway", location: "Maidenhead", tag: "Driveways", value: "£18,900", summary: "Sleek resin-bound driveway with clipped topiary and lighting.", img: prdAfter1 },
+  { title: "Outdoor Entertainment Area", location: "Bracknell", tag: "Gardens", value: "£56,000", summary: "Pergola, fire pit lounge and outdoor kitchen for year-round use.", img: oesAfter },
+  { title: "Corporate HQ Landscape", location: "Slough", tag: "Commercial", value: "£120,000", summary: "Complete grounds renovation for a Grade-A office development.", img: ccuAfter1 },
 ];
 const projectRoutes: Record<string, string> = {
   "Luxury Garden Transformation": "/projects/luxury-garden-transformation",
@@ -927,7 +928,7 @@ function FAQ() {
 function FinalCTA() {
   return (
     <section className="relative overflow-hidden py-24 md:py-32">
-      <img src={proj1} alt="" className="absolute inset-0 h-full w-full object-cover" />
+      <img src={ctaBackground} alt="" className="absolute inset-0 h-full w-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-r from-forest-deep/95 via-forest-deep/80 to-forest-deep/50" />
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 md:px-8 lg:grid-cols-2">
         <div className="text-white">

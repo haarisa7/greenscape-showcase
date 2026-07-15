@@ -1,42 +1,69 @@
-import heroGarden from "@/assets/hero-garden.jpg";
-import heroGreenfield from "@/assets/hero-greenfield.jpg";
-import beforeImg from "@/assets/before.jpg";
-import afterImg from "@/assets/after.jpg";
-import teamImg from "@/assets/team.jpg";
-import whyImg from "@/assets/why-choose.jpg";
-import svcDesign from "@/assets/service-design.jpg";
-import svcPaving from "@/assets/service-paving.jpg";
-import svcDriveway from "@/assets/service-driveway.jpg";
-import svcArtificial from "@/assets/service-artificial.jpg";
-import svcFencing from "@/assets/service-fencing.jpg";
-import svcDecking from "@/assets/service-decking.jpg";
-import svcOutdoor from "@/assets/service-outdoor.jpg";
-import svcCommercial from "@/assets/service-commercial.jpg";
-import svcLawn from "@/assets/service-lawn.jpg";
-import proj1 from "@/assets/project-1.jpg";
-import proj2 from "@/assets/project-2.jpg";
-import proj3 from "@/assets/project-3.jpg";
-import proj4 from "@/assets/project-4.jpg";
-import proj5 from "@/assets/project-5.jpg";
-import proj6 from "@/assets/project-6.jpg";
+import heroGarden from "@/assets/site/hero-garden.jpg";
+import heroGreenfield from "@/assets/site/hero-greenfield.jpg";
+import beforeImg from "@/assets/site/before.jpg";
+import afterImg from "@/assets/site/after.jpg";
+import teamImg from "@/assets/site/team.jpg";
+import whyImg from "@/assets/site/why-choose.jpg";
+import svcDesign from "@/assets/services/design.jpg";
+import svcPaving from "@/assets/services/paving.jpg";
+import svcDriveway from "@/assets/services/driveway.jpg";
+import svcArtificial from "@/assets/services/artificial.jpg";
+import svcFencing from "@/assets/services/fencing.jpg";
+import svcDecking from "@/assets/services/decking.jpg";
+import svcOutdoor from "@/assets/services/outdoor.jpg";
+import svcCommercial from "@/assets/services/commercial.jpg";
+import svcLawn from "@/assets/services/lawn.jpg";
+import cdiAfter from "@/assets/projects/composite-decking-installation/after.jpg";
+import flrAfter1 from "@/assets/projects/full-landscape-redesign/after-1.jpg";
+import flrAfter2 from "@/assets/projects/full-landscape-redesign/after-2.jpg";
 
-const projectImageModules = import.meta.glob("../assets/projects/**/*.{jpg,jpeg,png,webp}", {
-  eager: true,
-  import: "default",
-}) as Record<string, string>;
+import lgtAfter1 from "@/assets/projects/luxury-garden-transformation/after-1.jpg";
+import lgtAfter2 from "@/assets/projects/luxury-garden-transformation/after-2.jpg";
+import lgtAfter3 from "@/assets/projects/luxury-garden-transformation/after-3.jpg";
+import lgtBefore1 from "@/assets/projects/luxury-garden-transformation/before-1.jpg";
+import lgtBefore2 from "@/assets/projects/luxury-garden-transformation/before-2.jpg";
+import lgtConstruction1 from "@/assets/projects/luxury-garden-transformation/construction-1.jpg";
 
-const projectAsset = (relativePath: string) => {
-  const asset = projectImageModules[relativePath];
+import cppAfter from "@/assets/projects/contemporary-porcelain-patio/after.png";
+import cppBefore from "@/assets/projects/contemporary-porcelain-patio/before.png";
+import cppConstruction from "@/assets/projects/contemporary-porcelain-patio/construction.png";
 
-  if (!asset) {
-    throw new Error(`Missing project asset: ${relativePath}`);
-  }
+import fgrAfter from "@/assets/projects/family-garden-renovation/after.png";
+import fgrBefore from "@/assets/projects/family-garden-renovation/before.png";
+import fgrConstruction from "@/assets/projects/family-garden-renovation/construction.jpg";
 
-  return asset;
-};
+import mfgAfter from "@/assets/projects/modern-front-garden/after.png";
+import mfgBefore from "@/assets/projects/modern-front-garden/before.png";
+import mfgConstruction from "@/assets/projects/modern-front-garden/construction.png";
 
-const projectFolderAsset = (folder: string, fileName: string) =>
-  projectAsset(`../assets/projects/${folder}/${fileName}`);
+import oesAfter from "@/assets/projects/outdoor-entertainment-space/after.png";
+import oesBefore from "@/assets/projects/outdoor-entertainment-space/before.png";
+import oesConstruction from "@/assets/projects/outdoor-entertainment-space/construction.png";
+
+import tspAfter from "@/assets/projects/traditional-sandstone-patio/after.png";
+import tspBefore from "@/assets/projects/traditional-sandstone-patio/before.png";
+import tspConstruction from "@/assets/projects/traditional-sandstone-patio/construction.png";
+
+import aliAfter from "@/assets/projects/artificial-lawn-installation/after.png";
+import aliBefore from "@/assets/projects/artificial-lawn-installation/before.png";
+import aliConstruction from "@/assets/projects/artificial-lawn-installation/construction.png";
+
+import ccuAfter1 from "@/assets/projects/commercial-courtyard-upgrade/after-1.jpg";
+import ccuAfter2 from "@/assets/projects/commercial-courtyard-upgrade/after-2.jpg";
+import ccuAfter3 from "@/assets/projects/commercial-courtyard-upgrade/after-3.jpg";
+import ccuConstruction1 from "@/assets/projects/commercial-courtyard-upgrade/construction-1.jpg";
+
+import okpAfter1 from "@/assets/projects/outdoor-kitchen-project/after-1.jpg";
+import okpAfter2 from "@/assets/projects/outdoor-kitchen-project/after-2.jpg";
+import okpAfter3 from "@/assets/projects/outdoor-kitchen-project/after-3.jpg";
+import okpBefore1 from "@/assets/projects/outdoor-kitchen-project/before-1.jpg";
+import okpBefore2 from "@/assets/projects/outdoor-kitchen-project/before-2.jpg";
+import okpConstruction1 from "@/assets/projects/outdoor-kitchen-project/construction-1.jpg";
+
+import prdAfter1 from "@/assets/projects/premium-resin-driveway/after-1.jpg";
+import prdAfter2 from "@/assets/projects/premium-resin-driveway/after-2.jpg";
+import prdBefore1 from "@/assets/projects/premium-resin-driveway/before-1.jpg";
+import prdConstruction1 from "@/assets/projects/premium-resin-driveway/construction-1.jpg";
 
 export type ServiceSlug =
   | "garden-design"
@@ -101,112 +128,21 @@ export interface ProjectDefinition {
   outcome: string;
 }
 
-const portraitGardenGallery = [
-  projectFolderAsset("luxury-garden-transformation", "before.jpg"),
-  projectFolderAsset("luxury-garden-transformation", "before-1.jpg"),
-  projectFolderAsset("luxury-garden-transformation", "before-2.jpg"),
-  projectFolderAsset("luxury-garden-transformation", "construction.jpg"),
-  projectFolderAsset("luxury-garden-transformation", "construction-1.jpg"),
-  projectFolderAsset("luxury-garden-transformation", "after.jpg"),
-  projectFolderAsset("luxury-garden-transformation", "after-1.jpg"),
-  projectFolderAsset("luxury-garden-transformation", "after-2.jpg"),
-  projectFolderAsset("luxury-garden-transformation", "after-3.jpg"),
-];
-const porcelainGallery = [
-  projectFolderAsset("contemporary-porcelain-patio", "before (2).png"),
-  projectFolderAsset("contemporary-porcelain-patio", "before-1.jpg"),
-  projectFolderAsset("contemporary-porcelain-patio", "before-2.jpg"),
-  projectFolderAsset("contemporary-porcelain-patio", "construction (2).png"),
-  projectFolderAsset("contemporary-porcelain-patio", "construction-1.jpg"),
-  projectFolderAsset("contemporary-porcelain-patio", "after (2).png"),
-  projectFolderAsset("contemporary-porcelain-patio", "after-1.jpg"),
-  projectFolderAsset("contemporary-porcelain-patio", "after-2.jpg"),
-  projectFolderAsset("contemporary-porcelain-patio", "after-3.jpg"),
-];
-const renovationGallery = [
-  projectFolderAsset("family-garden-renovation", "before (5).png"),
-  projectFolderAsset("family-garden-renovation", "before-1.jpg"),
-  projectFolderAsset("family-garden-renovation", "before-2.jpg"),
-  projectFolderAsset("family-garden-renovation", "construction-1.jpg"),
-  projectFolderAsset("family-garden-renovation", "after (5).png"),
-  projectFolderAsset("family-garden-renovation", "after-1.jpg"),
-  projectFolderAsset("family-garden-renovation", "after-2.jpg"),
-  projectFolderAsset("family-garden-renovation", "after-3.jpg"),
-];
-const drivewayGallery = [
-  projectFolderAsset("premium-resin-driveway", "before-1.jpg"),
-  projectFolderAsset("premium-resin-driveway", "construction-1.jpg"),
-  projectFolderAsset("premium-resin-driveway", "after-1.jpg"),
-  projectFolderAsset("premium-resin-driveway", "after-2.jpg"),
-];
-const outdoorGallery = [
-  projectFolderAsset("outdoor-entertainment-space", "before.png"),
-  projectFolderAsset("outdoor-entertainment-space", "before-1.jpg"),
-  projectFolderAsset("outdoor-entertainment-space", "before-2.jpg"),
-  projectFolderAsset("outdoor-entertainment-space", "construction.png"),
-  projectFolderAsset("outdoor-entertainment-space", "construction-1.jpg"),
-  projectFolderAsset("outdoor-entertainment-space", "after.png"),
-  projectFolderAsset("outdoor-entertainment-space", "after-1.jpg"),
-  projectFolderAsset("outdoor-entertainment-space", "after-2.jpg"),
-  projectFolderAsset("outdoor-entertainment-space", "after-3.jpg"),
-];
-const frontGardenGallery = [
-  projectFolderAsset("modern-front-garden", "before (3).png"),
-  projectFolderAsset("modern-front-garden", "before-1.jpg"),
-  projectFolderAsset("modern-front-garden", "construction (3).png"),
-  projectFolderAsset("modern-front-garden", "construction-1.jpg"),
-  projectFolderAsset("modern-front-garden", "after (3).png"),
-  projectFolderAsset("modern-front-garden", "after-1.jpg"),
-  projectFolderAsset("modern-front-garden", "after-2.jpg"),
-  projectFolderAsset("modern-front-garden", "after-3.jpg"),
-];
-const commercialGallery = [
-  projectFolderAsset("commercial-courtyard-upgrade", "construction-1.jpg"),
-  projectFolderAsset("commercial-courtyard-upgrade", "after-1.jpg"),
-  projectFolderAsset("commercial-courtyard-upgrade", "after-2.jpg"),
-  projectFolderAsset("commercial-courtyard-upgrade", "after-3.jpg"),
-];
-const deckingGallery = [
-  projectFolderAsset("outdoor-entertainment-space", "before-1.jpg"),
-  projectFolderAsset("outdoor-entertainment-space", "construction-1.jpg"),
-  projectFolderAsset("outdoor-entertainment-space", "after-1.jpg"),
-  projectFolderAsset("outdoor-entertainment-space", "after-2.jpg"),
-  projectFolderAsset("outdoor-entertainment-space", "after-3.jpg"),
-];
-const sandstoneGallery = [
-  projectFolderAsset("traditional-sandstone-patio", "before (1).png"),
-  projectFolderAsset("traditional-sandstone-patio", "before-1.jpg"),
-  projectFolderAsset("traditional-sandstone-patio", "before-2.jpg"),
-  projectFolderAsset("traditional-sandstone-patio", "construction (1).png"),
-  projectFolderAsset("traditional-sandstone-patio", "construction-1.jpg"),
-  projectFolderAsset("traditional-sandstone-patio", "after (1).png"),
-  projectFolderAsset("traditional-sandstone-patio", "after-1.jpg"),
-  projectFolderAsset("traditional-sandstone-patio", "after-2.jpg"),
-  projectFolderAsset("traditional-sandstone-patio", "after-3.jpg"),
-];
-const artificialGallery = [
-  projectFolderAsset("artificial-lawn-installation", "before (4).png"),
-  projectFolderAsset("artificial-lawn-installation", "construction (4).png"),
-  projectFolderAsset("artificial-lawn-installation", "after (4).png"),
-];
-const kitchenGallery = [
-  projectFolderAsset("outdoor-kitchen-project", "before-1.jpg"),
-  projectFolderAsset("outdoor-kitchen-project", "before-2.jpg"),
-  projectFolderAsset("outdoor-kitchen-project", "construction-1.jpg"),
-  projectFolderAsset("outdoor-kitchen-project", "after-1.jpg"),
-  projectFolderAsset("outdoor-kitchen-project", "after-2.jpg"),
-  projectFolderAsset("outdoor-kitchen-project", "after-3.jpg"),
-];
-const landscapeGallery = [
-  projectFolderAsset("luxury-garden-transformation", "before-1.jpg"),
-  projectFolderAsset("modern-front-garden", "before-1.jpg"),
-  projectFolderAsset("traditional-sandstone-patio", "before-1.jpg"),
-  projectFolderAsset("commercial-courtyard-upgrade", "construction-1.jpg"),
-  projectFolderAsset("outdoor-kitchen-project", "construction-1.jpg"),
-  projectFolderAsset("luxury-garden-transformation", "after-1.jpg"),
-  projectFolderAsset("modern-front-garden", "after-1.jpg"),
-  projectFolderAsset("traditional-sandstone-patio", "after-1.jpg"),
-];
+const luxuryGardenGallery = [lgtAfter2, lgtAfter1, lgtAfter3, lgtConstruction1, lgtBefore1, lgtBefore2];
+const porcelainGallery = [cppAfter, cppConstruction, cppBefore];
+const renovationGallery = [fgrAfter, fgrConstruction, fgrBefore];
+const drivewayGallery = [prdAfter1, prdAfter2, prdConstruction1, prdBefore1];
+const outdoorGallery = [oesAfter, oesConstruction, oesBefore];
+const frontGardenGallery = [mfgAfter, mfgConstruction, mfgBefore];
+const commercialGallery = [ccuAfter1, ccuAfter2, ccuAfter3, ccuConstruction1, beforeImg];
+const sandstoneGallery = [tspAfter, tspConstruction, tspBefore];
+const artificialGallery = [aliAfter, aliConstruction, aliBefore];
+const kitchenGallery = [okpAfter1, okpAfter2, okpAfter3, okpConstruction1, okpBefore1, okpBefore2];
+
+// No new sourced photos yet for these two projects (Pexels/Pixabay blocked, no relevant matches
+// found elsewhere) - keeping the original shared placeholder images until real ones are available.
+const deckingGallery = [cdiAfter, svcDecking, svcOutdoor, heroGarden, teamImg, beforeImg, afterImg];
+const landscapeGallery = [flrAfter1, flrAfter2, svcDesign, svcCommercial, heroGarden, beforeImg, afterImg];
 
 export const services: ServiceDefinition[] = [
   {
@@ -373,7 +309,7 @@ export const projects: ProjectDefinition[] = [
     location: "Ascot, Berkshire",
     budgetRange: "£68,000 - £92,000",
     completionDate: "May 2026",
-      featuredImage: projectFolderAsset("luxury-garden-transformation", "after.jpg"),
+    featuredImage: lgtAfter2,
     summary: "A full redesign that brought together a porcelain terrace, layered planting and a sheltered entertaining zone.",
     description:
       "The client wanted a garden that felt refined, family-friendly and ready for year-round entertaining. We re-planned the entire layout so the house opened onto a generous terrace, while the planting and lighting softened the architecture and created depth into the plot.",
@@ -383,9 +319,9 @@ export const projects: ProjectDefinition[] = [
     designApproach: ["We defined the terrace first so the main entertaining area would feel generous and balanced.", "A layered planting plan was used to pull the eye through the garden and soften the boundary edges.", "Lighting and detailing were specified to keep the garden atmospheric after dark without overcomplicating maintenance."],
     delivered: ["Excavation and spoil removal", "Drainage and level correction", "Porcelain paving", "Raised planters", "Planting and irrigation", "Feature lighting"],
     materialsUsed: ["Porcelain Tiles", "Natural Stone Edging", "Architectural Lighting", "Specimen Planting"],
-    gallery: portraitGardenGallery,
-    beforeImages: [projectFolderAsset("luxury-garden-transformation", "before.jpg"), projectFolderAsset("luxury-garden-transformation", "construction.jpg")],
-    afterImages: [projectFolderAsset("luxury-garden-transformation", "after.jpg"), projectFolderAsset("luxury-garden-transformation", "after-1.jpg")],
+    gallery: luxuryGardenGallery,
+    beforeImages: [lgtBefore1, lgtBefore2],
+    afterImages: [lgtAfter2, lgtAfter1],
     outcome:
       "The completed garden feels like a series of connected outdoor rooms rather than one large open lawn. The client now has a terrace for dining, a softer planting frame for privacy and a layout that will continue to improve as the planting matures.",
   },
@@ -398,7 +334,7 @@ export const projects: ProjectDefinition[] = [
     location: "Windsor, Berkshire",
     budgetRange: "£24,500 - £31,000",
     completionDate: "April 2026",
-      featuredImage: projectFolderAsset("contemporary-porcelain-patio", "after (2).png"),
+    featuredImage: cppAfter,
     summary: "A crisp porcelain terrace with subtle levels, integrated steps and space for evening dining.",
     description:
       "This project focused on creating a clean, modern patio that could handle daily family use and weekend entertaining. The finish needed to sit comfortably with the house while still feeling bold and contemporary.",
@@ -409,8 +345,8 @@ export const projects: ProjectDefinition[] = [
     delivered: ["Excavation and base build", "Drainage correction", "Porcelain paving", "Step construction", "Lighting and jointing"],
     materialsUsed: ["Porcelain Tiles", "Granite Edging", "Outdoor Lighting", "Decorative Gravel"],
     gallery: porcelainGallery,
-    beforeImages: [projectFolderAsset("contemporary-porcelain-patio", "before (2).png"), projectFolderAsset("contemporary-porcelain-patio", "construction (2).png")],
-    afterImages: [projectFolderAsset("contemporary-porcelain-patio", "after (2).png"), projectFolderAsset("contemporary-porcelain-patio", "after-1.jpg")],
+    beforeImages: [cppBefore],
+    afterImages: [cppAfter],
     outcome:
       "The patio now reads as a neat extension of the home rather than an add-on. It gives the family a practical dining area and a polished backdrop for entertaining, while the materials will keep their crisp appearance with minimal upkeep.",
   },
@@ -423,7 +359,7 @@ export const projects: ProjectDefinition[] = [
     location: "Reading, Berkshire",
     budgetRange: "£42,000 - £58,000",
     completionDate: "March 2026",
-      featuredImage: projectFolderAsset("family-garden-renovation", "after (5).png"),
+    featuredImage: fgrAfter,
     summary: "A practical family layout with a soft lawn, durable deck and secure fencing for everyday use.",
     description:
       "The brief was to create a family garden that looked polished but was still easy to live with. We zoned the space around play, relaxation and planting so it now works for children, adults and pets in equal measure.",
@@ -434,8 +370,8 @@ export const projects: ProjectDefinition[] = [
     delivered: ["Excavation and ground preparation", "Artificial lawn installation", "Composite decking", "Fence replacement", "Planting and edging"],
     materialsUsed: ["Premium Turf", "Composite Decking", "Timber Fencing", "Planting Mulch"],
     gallery: renovationGallery,
-    beforeImages: [projectFolderAsset("family-garden-renovation", "before (5).png"), projectFolderAsset("family-garden-renovation", "construction-1.jpg")],
-    afterImages: [projectFolderAsset("family-garden-renovation", "after (5).png"), projectFolderAsset("family-garden-renovation", "after-1.jpg")],
+    beforeImages: [fgrBefore],
+    afterImages: [fgrAfter],
     outcome:
       "The garden now feels safe, open and easy to maintain. The family has a lawn that stays neat all year, a deck for seating and a boundary treatment that gives the whole plot a calmer, more finished feel.",
   },
@@ -448,7 +384,7 @@ export const projects: ProjectDefinition[] = [
     location: "Maidenhead, Berkshire",
     budgetRange: "£18,900 - £26,000",
     completionDate: "February 2026",
-      featuredImage: projectFolderAsset("premium-resin-driveway", "after-1.jpg"),
+    featuredImage: prdAfter1,
     summary: "A resin-bound driveway that refreshed the frontage with sharper lines, drainage and planting balance.",
     description:
       "This entrance renovation was designed to make the property feel more composed from the street. The new driveway needed to deliver a cleaner parking layout while lifting the overall presentation of the front garden.",
@@ -459,8 +395,8 @@ export const projects: ProjectDefinition[] = [
     delivered: ["Excavation and spoil removal", "Permeable sub-base", "Resin surfacing", "Edging and thresholds", "Front border planting"],
     materialsUsed: ["Resin Bound Aggregate", "Permeable MOT", "Granite Setts", "Architectural Planting"],
     gallery: drivewayGallery,
-    beforeImages: [projectFolderAsset("premium-resin-driveway", "before-1.jpg"), projectFolderAsset("premium-resin-driveway", "construction-1.jpg")],
-    afterImages: [projectFolderAsset("premium-resin-driveway", "after-1.jpg"), projectFolderAsset("premium-resin-driveway", "after-2.jpg")],
+    beforeImages: [prdBefore1],
+    afterImages: [prdAfter1, prdAfter2],
     outcome:
       "The house now has a more confident frontage and a driveway that feels tailored to the property rather than purely functional. The surface drains properly, the entrance looks sharper and the front garden now supports the architecture instead of fighting it.",
   },
@@ -473,7 +409,7 @@ export const projects: ProjectDefinition[] = [
     location: "Bracknell, Berkshire",
     budgetRange: "£56,000 - £74,000",
     completionDate: "January 2026",
-      featuredImage: projectFolderAsset("outdoor-entertainment-space", "after.png"),
+    featuredImage: oesAfter,
     summary: "A layered entertaining zone with a pergola, fire pit seating and a strong indoor-outdoor connection.",
     description:
       "The client wanted a garden that could be used beyond summer, so the design focused on shelter, warmth and comfort. We created a structured sequence of terrace, deck and seating areas that works for family evenings and social gatherings.",
@@ -484,8 +420,8 @@ export const projects: ProjectDefinition[] = [
     delivered: ["Groundworks and levels", "Composite decking", "Pergola installation", "Fire pit seating", "Lighting and planting"],
     materialsUsed: ["Composite Decking", "Porcelain Paving", "Timber Pergola", "LED Garden Lighting"],
     gallery: outdoorGallery,
-    beforeImages: [projectFolderAsset("outdoor-entertainment-space", "before.png"), projectFolderAsset("outdoor-entertainment-space", "construction.png")],
-    afterImages: [projectFolderAsset("outdoor-entertainment-space", "after.png"), projectFolderAsset("outdoor-entertainment-space", "after-1.jpg")],
+    beforeImages: [oesBefore],
+    afterImages: [oesAfter],
     outcome:
       "The garden now behaves like a proper outdoor room. The family has a sheltered place to gather, the lighting extends the usable hours and the mix of materials keeps the scheme feeling premium rather than overbuilt.",
   },
@@ -498,7 +434,7 @@ export const projects: ProjectDefinition[] = [
     location: "Wokingham, Berkshire",
     budgetRange: "£21,000 - £34,000",
     completionDate: "January 2026",
-      featuredImage: projectFolderAsset("modern-front-garden", "after (3).png"),
+    featuredImage: mfgAfter,
     summary: "A front garden redesign that combined paving, planting and boundary work for a cleaner arrival sequence.",
     description:
       "This project was all about sharpening the first impression. We reworked the boundary, parking and planting so the frontage feels more modern and better proportioned to the home.",
@@ -509,8 +445,8 @@ export const projects: ProjectDefinition[] = [
     delivered: ["Excavation and reshaping", "Driveway resurfacing", "Boundary fencing", "Planting and edging", "Lighting to the entrance"],
     materialsUsed: ["Block Paving", "Timber Fencing", "Decorative Planting", "Low-Level Lighting"],
     gallery: frontGardenGallery,
-    beforeImages: [projectFolderAsset("modern-front-garden", "before (3).png"), projectFolderAsset("modern-front-garden", "construction (3).png")],
-    afterImages: [projectFolderAsset("modern-front-garden", "after (3).png"), projectFolderAsset("modern-front-garden", "after-1.jpg")],
+    beforeImages: [mfgBefore],
+    afterImages: [mfgAfter],
     outcome:
       "The frontage now feels ordered, welcoming and much better suited to the house. The entrance sequence is clearer, the parking area is easier to use and the whole property benefits from a more polished arrival experience.",
   },
@@ -523,7 +459,7 @@ export const projects: ProjectDefinition[] = [
     location: "Slough, Berkshire",
     budgetRange: "£120,000 - £156,000",
     completionDate: "December 2025",
-      featuredImage: projectFolderAsset("commercial-courtyard-upgrade", "after-1.jpg"),
+    featuredImage: ccuAfter1,
     summary: "A business courtyard upgrade that improved circulation, seating and visual quality for staff and visitors.",
     description:
       "The site needed to feel professional, durable and easy for the facilities team to manage. We delivered a refined courtyard scheme that supports circulation during the day and gives the building a more confident external presence.",
@@ -534,8 +470,8 @@ export const projects: ProjectDefinition[] = [
     delivered: ["Site clearance", "Commercial paving", "Seat walls and planters", "Drainage improvements", "Soft landscaping"],
     materialsUsed: ["Commercial Paving", "Stainless Edging", "Architectural Planting", "Durable Seating Walls"],
     gallery: commercialGallery,
-    beforeImages: [projectFolderAsset("commercial-courtyard-upgrade", "construction-1.jpg"), projectFolderAsset("commercial-courtyard-upgrade", "after-1.jpg")],
-    afterImages: [projectFolderAsset("commercial-courtyard-upgrade", "after-2.jpg"), projectFolderAsset("commercial-courtyard-upgrade", "after-3.jpg")],
+    beforeImages: [beforeImg],
+    afterImages: [ccuAfter1, ccuAfter2],
     outcome:
       "The courtyard now feels like a proper part of the workplace experience. It is cleaner, more usable and much more aligned with the quality of the building itself.",
   },
@@ -548,7 +484,7 @@ export const projects: ProjectDefinition[] = [
     location: "Reading, Berkshire",
     budgetRange: "£19,500 - £28,500",
     completionDate: "November 2025",
-      featuredImage: projectFolderAsset("outdoor-entertainment-space", "after-2.jpg"),
+    featuredImage: cdiAfter,
     summary: "A low-maintenance composite deck that creates a clean transition from the house into the garden.",
     description:
       "This scheme replaced an ageing timber deck with a better engineered composite structure. The new deck provides a sharper finish, cleaner detailing and a more usable platform for furniture and planting.",
@@ -559,8 +495,8 @@ export const projects: ProjectDefinition[] = [
     delivered: ["Old deck removal", "New subframe", "Composite board installation", "Steps and trim detail", "Finishing clean-up"],
     materialsUsed: ["Composite Decking", "Galvanised Subframe", "Hidden Fixings", "Powder-Coated Trims"],
     gallery: deckingGallery,
-    beforeImages: [projectFolderAsset("outdoor-entertainment-space", "before-1.jpg"), projectFolderAsset("outdoor-entertainment-space", "construction-1.jpg")],
-    afterImages: [projectFolderAsset("outdoor-entertainment-space", "after-2.jpg"), projectFolderAsset("outdoor-entertainment-space", "after-3.jpg")],
+    beforeImages: [svcDecking, beforeImg],
+    afterImages: [cdiAfter, teamImg],
     outcome:
       "The new deck gives the household a tidy, practical and much more durable outdoor platform. It now feels like a finished architectural element rather than a temporary add-on.",
   },
@@ -573,7 +509,7 @@ export const projects: ProjectDefinition[] = [
     location: "High Wycombe, Buckinghamshire",
     budgetRange: "£27,000 - £38,000",
     completionDate: "October 2025",
-      featuredImage: projectFolderAsset("traditional-sandstone-patio", "after (1).png"),
+    featuredImage: tspAfter,
     summary: "A classic sandstone terrace with gentle detailing to suit a character property and mature garden.",
     description:
       "This patio was designed to feel like it had always belonged to the property. We matched the material palette to the house style and used restrained detailing to create a comfortable, timeless outdoor room.",
@@ -584,8 +520,8 @@ export const projects: ProjectDefinition[] = [
     delivered: ["Excavation and levels correction", "Sandstone paving", "Step detailing", "Jointing and edging", "Border planting"],
     materialsUsed: ["Natural Sandstone", "Brick Edging", "Planting Soil", "Outdoor Lighting"],
     gallery: sandstoneGallery,
-    beforeImages: [projectFolderAsset("traditional-sandstone-patio", "before (1).png"), projectFolderAsset("traditional-sandstone-patio", "construction-1.jpg")],
-    afterImages: [projectFolderAsset("traditional-sandstone-patio", "after (1).png"), projectFolderAsset("traditional-sandstone-patio", "after-1.jpg")],
+    beforeImages: [tspBefore],
+    afterImages: [tspAfter],
     outcome:
       "The patio now feels settled and authentic to the property. It offers the client a durable and attractive dining area while preserving the traditional character of the garden.",
   },
@@ -598,7 +534,7 @@ export const projects: ProjectDefinition[] = [
     location: "Basingstoke, Hampshire",
     budgetRange: "£14,500 - £22,000",
     completionDate: "September 2025",
-      featuredImage: projectFolderAsset("artificial-lawn-installation", "after (4).png"),
+    featuredImage: aliAfter,
     summary: "A tidy, low-maintenance lawn installation that keeps the family garden looking fresh in every season.",
     description:
       "The brief was to solve a lawn that struggled with shade, wear and patchiness. By rebuilding the base and sharpening the edge details, the garden gained a reliable surface for children and pets without losing its sense of quality.",
@@ -609,8 +545,8 @@ export const projects: ProjectDefinition[] = [
     delivered: ["Turf removal", "Ground preparation", "Artificial grass installation", "Edging and border clean-up", "Boundary tidy-up"],
     materialsUsed: ["Premium Turf", "Permeable Base", "Timber Edging", "Decorative Gravel"],
     gallery: artificialGallery,
-    beforeImages: [projectFolderAsset("artificial-lawn-installation", "before (4).png"), projectFolderAsset("artificial-lawn-installation", "construction (4).png")],
-    afterImages: [projectFolderAsset("artificial-lawn-installation", "after (4).png"), projectFolderAsset("artificial-lawn-installation", "after (4).png")],
+    beforeImages: [aliBefore],
+    afterImages: [aliAfter],
     outcome:
       "The garden now has a clean, dependable lawn that stays presentable year-round. The family gets the visual order they wanted, and the maintenance burden is dramatically lower.",
   },
@@ -623,7 +559,7 @@ export const projects: ProjectDefinition[] = [
     location: "Ascot, Berkshire",
     budgetRange: "£72,000 - £96,000",
     completionDate: "August 2025",
-      featuredImage: projectFolderAsset("outdoor-kitchen-project", "after-1.jpg"),
+    featuredImage: okpAfter1,
     summary: "A kitchen-led entertaining space with porcelain flooring, storage, lighting and room for guests.",
     description:
       "The outdoor kitchen needed to feel integrated rather than bolted onto the garden. We built the terrace, service routes and surrounding detailing together so the result functions like a true extension of the home.",
@@ -634,8 +570,8 @@ export const projects: ProjectDefinition[] = [
     delivered: ["Utility coordination", "Porcelain terrace", "Outdoor kitchen install", "Lighting and seating", "Planting and detailing"],
     materialsUsed: ["Porcelain Tiles", "Stone Worktops", "Weatherproof Joinery", "LED Task Lighting"],
     gallery: kitchenGallery,
-    beforeImages: [projectFolderAsset("outdoor-kitchen-project", "before-1.jpg"), projectFolderAsset("outdoor-kitchen-project", "construction-1.jpg")],
-    afterImages: [projectFolderAsset("outdoor-kitchen-project", "after-1.jpg"), projectFolderAsset("outdoor-kitchen-project", "after-2.jpg")],
+    beforeImages: [okpBefore1, okpBefore2],
+    afterImages: [okpAfter1, okpAfter2],
     outcome:
       "The garden now has a serious entertaining centrepiece. The outdoor kitchen feels integrated into the space, the terrace is practical for guests and the whole area has a much stronger sense of purpose.",
   },
@@ -648,7 +584,7 @@ export const projects: ProjectDefinition[] = [
     location: "Reading, Berkshire",
     budgetRange: "£88,000 - £124,000",
     completionDate: "June 2025",
-      featuredImage: projectFolderAsset("luxury-garden-transformation", "after-3.jpg"),
+    featuredImage: flrAfter1,
     summary: "A complete landscape overhaul with layered materials, new boundaries and an improved garden flow.",
     description:
       "This was a comprehensive redesign rather than a surface refresh. Every part of the garden was reconsidered so the house, terraces, boundaries and planting all work together as one coherent scheme.",
@@ -659,8 +595,8 @@ export const projects: ProjectDefinition[] = [
     delivered: ["Full excavation", "New paving and decking", "Boundary fencing", "Planting and lighting", "Outdoor living zone"],
     materialsUsed: ["Porcelain Paving", "Composite Decking", "Timber Fencing", "Feature Lighting"],
     gallery: landscapeGallery,
-    beforeImages: [projectFolderAsset("luxury-garden-transformation", "before-1.jpg"), projectFolderAsset("modern-front-garden", "before-1.jpg")],
-    afterImages: [projectFolderAsset("luxury-garden-transformation", "after-3.jpg"), projectFolderAsset("modern-front-garden", "after-3.jpg")],
+    beforeImages: [svcDesign, beforeImg],
+    afterImages: [flrAfter1, flrAfter2],
     outcome:
       "The garden now feels coherent from end to end. Rather than several disconnected surfaces, the client has a finished landscape with rhythm, privacy and a clear sense of movement through the space.",
   },

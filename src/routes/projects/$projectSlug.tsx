@@ -212,7 +212,7 @@ function ProjectPage() {
           <div className="flex items-end justify-between gap-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Project gallery</p>
-              <h2 className="mt-2 text-3xl font-extrabold sm:text-4xl">Eight image case-study gallery</h2>
+              <h2 className="mt-2 text-3xl font-extrabold sm:text-4xl">Before, during and after the build</h2>
             </div>
             <button
               type="button"
