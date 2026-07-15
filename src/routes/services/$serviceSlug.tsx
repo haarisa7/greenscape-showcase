@@ -159,7 +159,7 @@ function ServicePage() {
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Service FAQ</p>
           <h2 className="mt-2 text-3xl font-extrabold sm:text-4xl">Questions we are asked about this service</h2>
           <div className="mt-8 grid gap-4 lg:grid-cols-3">
-            {service.faqs.map((faq) => (
+            {service.faqs.map((faq: { question: string; answer: string }) => (
               <details key={faq.question} className="group rounded-2xl border border-border bg-card p-6 shadow-soft">
                 <summary className="cursor-pointer list-none text-lg font-semibold">{faq.question}</summary>
                 <p className="mt-3 text-sm leading-6 text-muted-foreground">{faq.answer}</p>

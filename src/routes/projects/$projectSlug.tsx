@@ -2,7 +2,7 @@ import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, Expand, Maximize2, X } from "lucide-react";
 
-import { getProjectBySlug, getRelatedProjects, getServiceBySlug, type ProjectSlug } from "@/content/portfolio";
+import { getProjectBySlug, getRelatedProjects, getServiceBySlug, type ProjectSlug, type ServiceSlug } from "@/content/portfolio";
 
 export const Route = createFileRoute("/projects/$projectSlug")({
   component: ProjectPage,
@@ -281,7 +281,7 @@ function ProjectPage() {
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Materials used</p>
               <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Premium material cards</h2>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                {project.materialsUsed.map((material) => (
+                {project.materialsUsed.map((material: string) => (
                   <article key={material} className="rounded-2xl bg-sand p-5 ring-1 ring-black/5">
                     <div className="text-lg font-bold">{material}</div>
                     <p className="mt-2 text-sm leading-6 text-muted-foreground">{materialDescriptions[material] ?? "Selected for its performance, finish and suitability to the scheme."}</p>
