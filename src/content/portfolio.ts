@@ -14,8 +14,16 @@ import svcOutdoor from "@/assets/services/outdoor.jpg";
 import svcCommercial from "@/assets/services/commercial.jpg";
 import svcLawn from "@/assets/services/lawn.jpg";
 import cdiAfter from "@/assets/projects/composite-decking-installation/after.jpg";
+import cdiBefore from "@/assets/projects/composite-decking-installation/before.jpg";
+import cdiConstruction from "@/assets/projects/composite-decking-installation/construction.jpg";
+import cdiDetail from "@/assets/projects/composite-decking-installation/detail.jpg";
+import cdiEvening from "@/assets/projects/composite-decking-installation/evening.jpg";
 import flrAfter1 from "@/assets/projects/full-landscape-redesign/after-1.jpg";
 import flrAfter2 from "@/assets/projects/full-landscape-redesign/after-2.jpg";
+import flrBefore1 from "@/assets/projects/full-landscape-redesign/before-1.jpg";
+import flrBefore2 from "@/assets/projects/full-landscape-redesign/before-2.jpg";
+import flrConstruction1 from "@/assets/projects/full-landscape-redesign/construction-1.jpg";
+import flrDetail from "@/assets/projects/full-landscape-redesign/detail.jpg";
 
 import lgtAfter1 from "@/assets/projects/luxury-garden-transformation/after-1.jpg";
 import lgtAfter2 from "@/assets/projects/luxury-garden-transformation/after-2.jpg";
@@ -51,6 +59,7 @@ import aliConstruction from "@/assets/projects/artificial-lawn-installation/cons
 import ccuAfter1 from "@/assets/projects/commercial-courtyard-upgrade/after-1.jpg";
 import ccuAfter2 from "@/assets/projects/commercial-courtyard-upgrade/after-2.jpg";
 import ccuAfter3 from "@/assets/projects/commercial-courtyard-upgrade/after-3.jpg";
+import ccuBefore1 from "@/assets/projects/commercial-courtyard-upgrade/before-1.jpg";
 import ccuConstruction1 from "@/assets/projects/commercial-courtyard-upgrade/construction-1.jpg";
 
 import okpAfter1 from "@/assets/projects/outdoor-kitchen-project/after-1.jpg";
@@ -134,15 +143,13 @@ const renovationGallery = [fgrAfter, fgrConstruction, fgrBefore];
 const drivewayGallery = [prdAfter1, prdAfter2, prdConstruction1, prdBefore1];
 const outdoorGallery = [oesAfter, oesConstruction, oesBefore];
 const frontGardenGallery = [mfgAfter, mfgConstruction, mfgBefore];
-const commercialGallery = [ccuAfter1, ccuAfter2, ccuAfter3, ccuConstruction1, beforeImg];
+const commercialGallery = [ccuAfter1, ccuAfter2, ccuAfter3, ccuConstruction1, ccuBefore1];
 const sandstoneGallery = [tspAfter, tspConstruction, tspBefore];
 const artificialGallery = [aliAfter, aliConstruction, aliBefore];
 const kitchenGallery = [okpAfter1, okpAfter2, okpAfter3, okpConstruction1, okpBefore1, okpBefore2];
 
-// No new sourced photos yet for these two projects (Pexels/Pixabay blocked, no relevant matches
-// found elsewhere) - keeping the original shared placeholder images until real ones are available.
-const deckingGallery = [cdiAfter, svcDecking, svcOutdoor, heroGarden, teamImg, beforeImg, afterImg];
-const landscapeGallery = [flrAfter1, flrAfter2, svcDesign, svcCommercial, heroGarden, beforeImg, afterImg];
+const deckingGallery = [cdiAfter, cdiEvening, cdiDetail, cdiConstruction, cdiBefore];
+const landscapeGallery = [flrAfter1, flrAfter2, flrDetail, flrConstruction1, flrBefore1, flrBefore2];
 
 export const services: ServiceDefinition[] = [
   {
@@ -470,7 +477,7 @@ export const projects: ProjectDefinition[] = [
     delivered: ["Site clearance", "Commercial paving", "Seat walls and planters", "Drainage improvements", "Soft landscaping"],
     materialsUsed: ["Commercial Paving", "Stainless Edging", "Architectural Planting", "Durable Seating Walls"],
     gallery: commercialGallery,
-    beforeImages: [beforeImg],
+    beforeImages: [ccuBefore1],
     afterImages: [ccuAfter1, ccuAfter2],
     outcome:
       "The courtyard now feels like a proper part of the workplace experience. It is cleaner, more usable and much more aligned with the quality of the building itself.",
@@ -495,8 +502,8 @@ export const projects: ProjectDefinition[] = [
     delivered: ["Old deck removal", "New subframe", "Composite board installation", "Steps and trim detail", "Finishing clean-up"],
     materialsUsed: ["Composite Decking", "Galvanised Subframe", "Hidden Fixings", "Powder-Coated Trims"],
     gallery: deckingGallery,
-    beforeImages: [svcDecking, beforeImg],
-    afterImages: [cdiAfter, teamImg],
+    beforeImages: [cdiBefore],
+    afterImages: [cdiAfter],
     outcome:
       "The new deck gives the household a tidy, practical and much more durable outdoor platform. It now feels like a finished architectural element rather than a temporary add-on.",
   },
@@ -595,7 +602,7 @@ export const projects: ProjectDefinition[] = [
     delivered: ["Full excavation", "New paving and decking", "Boundary fencing", "Planting and lighting", "Outdoor living zone"],
     materialsUsed: ["Porcelain Paving", "Composite Decking", "Timber Fencing", "Feature Lighting"],
     gallery: landscapeGallery,
-    beforeImages: [svcDesign, beforeImg],
+    beforeImages: [flrBefore1],
     afterImages: [flrAfter1, flrAfter2],
     outcome:
       "The garden now feels coherent from end to end. Rather than several disconnected surfaces, the client has a finished landscape with rhythm, privacy and a clear sense of movement through the space.",
