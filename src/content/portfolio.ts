@@ -28,7 +28,7 @@ import flrDetail from "@/assets/projects/full-landscape-redesign/detail.jpg";
 import lgtAfter1 from "@/assets/projects/luxury-garden-transformation/after-1.jpg";
 import lgtAfter2 from "@/assets/projects/luxury-garden-transformation/after-2.jpg";
 import lgtAfter3 from "@/assets/projects/luxury-garden-transformation/after-3.jpg";
-import lgtBefore1 from "@/assets/projects/luxury-garden-transformation/before-1.jpg";
+import lgtBefore1 from "@/assets/projects/luxury-garden-transformation/before-1.png";
 import lgtBefore2 from "@/assets/projects/luxury-garden-transformation/before-2.jpg";
 import lgtConstruction1 from "@/assets/projects/luxury-garden-transformation/construction-1.jpg";
 
@@ -71,7 +71,7 @@ import okpConstruction1 from "@/assets/projects/outdoor-kitchen-project/construc
 
 import prdAfter1 from "@/assets/projects/premium-resin-driveway/after-1.jpg";
 import prdAfter2 from "@/assets/projects/premium-resin-driveway/after-2.jpg";
-import prdBefore1 from "@/assets/projects/premium-resin-driveway/before-1.jpg";
+import prdBefore1 from "@/assets/projects/premium-resin-driveway/before-1.png";
 import prdConstruction1 from "@/assets/projects/premium-resin-driveway/construction-1.jpg";
 
 export type ServiceSlug =

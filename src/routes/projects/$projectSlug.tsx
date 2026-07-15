@@ -249,11 +249,14 @@ function ProjectPage() {
               <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Transformation slider</h2>
               <div ref={beforeAfterRef} className="relative mt-8 aspect-[16/10] overflow-hidden rounded-3xl select-none shadow-elegant ring-1 ring-black/10">
                 <img src={project.afterImages[0]} alt="After" className="absolute inset-0 h-full w-full object-cover" />
-                <div className="absolute inset-y-0 left-0 overflow-hidden" style={{ width: `${sliderPosition}%` }}>
-                  <img src={project.beforeImages[0]} alt="Before" className="absolute inset-y-0 left-0 h-full w-full object-cover" />
-                  <div className="absolute left-4 top-4 rounded-full bg-charcoal/75 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-white backdrop-blur">
-                    Before
-                  </div>
+                <img
+                  src={project.beforeImages[0]}
+                  alt="Before"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+                />
+                <div className="absolute left-4 top-4 rounded-full bg-charcoal/75 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-white backdrop-blur">
+                  Before
                 </div>
                 <div className="absolute right-4 top-4 rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground">
                   After
