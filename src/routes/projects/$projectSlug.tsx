@@ -158,7 +158,7 @@ function ProjectPage() {
             <div className="rounded-3xl bg-white/10 p-6 text-white backdrop-blur-xl ring-1 ring-white/15">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Project services</p>
               <div className="mt-4 flex flex-wrap gap-2">
-                {project.servicesUsed.map((slug) => {
+                {project.servicesUsed.map((slug: ServiceSlug) => {
                   const relatedService = getServiceBySlug(slug);
                   return (
                     <Link key={slug} to="/services/$serviceSlug" params={{ serviceSlug: slug }} className="rounded-full bg-white/10 px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/20">
@@ -194,7 +194,7 @@ function ProjectPage() {
               <div className="mt-8 space-y-3">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground/60">What we delivered</p>
                 <ul className="grid gap-3">
-                  {project.delivered.map((item) => (
+                  {project.delivered.map((item: string) => (
                     <li key={item} className="flex items-start gap-3 rounded-xl bg-sand px-4 py-3 text-sm">
                       <Expand className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                       <span>{item}</span>
@@ -224,7 +224,7 @@ function ProjectPage() {
           </div>
 
           <div ref={galleryRef} className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {project.gallery.map((image, index) => (
+            {project.gallery.map((image: string, index: number) => (
               <button key={`${project.slug}-${index}`} type="button" onClick={() => setActiveImage(image)} className="group overflow-hidden rounded-2xl bg-secondary shadow-soft">
                 <img src={image} alt={`${project.title} gallery image ${index + 1}`} className="h-64 w-full object-cover transition duration-700 group-hover:scale-110" />
               </button>
@@ -232,7 +232,7 @@ function ProjectPage() {
           </div>
 
           <div className="mt-10 flex flex-wrap gap-2">
-            {project.materialsUsed.map((material) => (
+            {project.materialsUsed.map((material: string) => (
               <article key={material} className="rounded-full border border-border bg-card px-4 py-2 text-sm shadow-soft">
                 <span className="font-semibold">{material}</span>
               </article>
