@@ -101,6 +101,7 @@ function Header() {
     ["Contact", "#contact"],
   ];
   return (
+    <>
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
@@ -164,30 +165,31 @@ function Header() {
           </button>
         </div>
       </div>
-      {open && (
-        <div className="fixed inset-0 z-[60] bg-charcoal/95 backdrop-blur-lg lg:hidden">
-          <div className="flex items-center justify-between px-5 py-4">
-            <span className="text-xl font-extrabold text-white md:text-2xl">Greenfield<span className="text-accent">.</span></span>
-            <button aria-label="Close" onClick={() => setOpen(false)} className="grid h-10 w-10 place-items-center rounded-lg bg-white/10 text-white">
-              <X className="h-5 w-5" />
-            </button>
-          </div>
-          <nav className="mt-8 flex flex-col gap-2 px-6">
-            {nav.map(([label, href]) => (
-              <a key={href} href={href} onClick={() => setOpen(false)} className="border-b border-white/10 py-4 text-2xl font-semibold text-white">
-                {label}
-              </a>
-            ))}
-            <a href="#contact" onClick={() => setOpen(false)} className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-4 text-base font-semibold text-accent-foreground">
-              Get Free Quote <ArrowRight className="h-4 w-4" />
-            </a>
-            <a href={PHONE_LINK} className="mt-3 inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-4 text-base font-semibold text-white">
-              <Phone className="h-4 w-4" /> {PHONE}
-            </a>
-          </nav>
-        </div>
-      )}
     </header>
+    {open && (
+      <div className="fixed inset-0 z-[60] bg-charcoal/95 backdrop-blur-lg lg:hidden">
+        <div className="flex items-center justify-between px-5 py-4">
+          <span className="text-xl font-extrabold text-white md:text-2xl">Greenfield<span className="text-accent">.</span></span>
+          <button aria-label="Close" onClick={() => setOpen(false)} className="grid h-10 w-10 place-items-center rounded-lg bg-white/10 text-white">
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+        <nav className="mt-8 flex flex-col gap-2 px-6">
+          {nav.map(([label, href]) => (
+            <a key={href} href={href} onClick={() => setOpen(false)} className="border-b border-white/10 py-4 text-2xl font-semibold text-white">
+              {label}
+            </a>
+          ))}
+          <a href="#contact" onClick={() => setOpen(false)} className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-4 text-base font-semibold text-accent-foreground">
+            Get Free Quote <ArrowRight className="h-4 w-4" />
+          </a>
+          <a href={PHONE_LINK} className="mt-3 inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-4 text-base font-semibold text-white">
+            <Phone className="h-4 w-4" /> {PHONE}
+          </a>
+        </nav>
+      </div>
+    )}
+    </>
   );
 }
 
