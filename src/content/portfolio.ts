@@ -14,8 +14,16 @@ import svcOutdoor from "@/assets/services/outdoor.jpg";
 import svcCommercial from "@/assets/services/commercial.jpg";
 import svcLawn from "@/assets/services/lawn.jpg";
 import cdiAfter from "@/assets/projects/composite-decking-installation/after.jpg";
+import cdiBefore from "@/assets/projects/composite-decking-installation/before.jpg";
+import cdiConstruction from "@/assets/projects/composite-decking-installation/construction.jpg";
+import cdiDetail from "@/assets/projects/composite-decking-installation/detail.jpg";
+import cdiEvening from "@/assets/projects/composite-decking-installation/evening.jpg";
 import flrAfter1 from "@/assets/projects/full-landscape-redesign/after-1.jpg";
 import flrAfter2 from "@/assets/projects/full-landscape-redesign/after-2.jpg";
+import flrBefore1 from "@/assets/projects/full-landscape-redesign/before-1.jpg";
+import flrBefore2 from "@/assets/projects/full-landscape-redesign/before-2.jpg";
+import flrConstruction1 from "@/assets/projects/full-landscape-redesign/construction-1.jpg";
+import flrDetail from "@/assets/projects/full-landscape-redesign/detail.jpg";
 
 import lgtAfter1 from "@/assets/projects/luxury-garden-transformation/after-1.jpg";
 import lgtAfter2 from "@/assets/projects/luxury-garden-transformation/after-2.jpg";
@@ -51,6 +59,7 @@ import aliConstruction from "@/assets/projects/artificial-lawn-installation/cons
 import ccuAfter1 from "@/assets/projects/commercial-courtyard-upgrade/after-1.jpg";
 import ccuAfter2 from "@/assets/projects/commercial-courtyard-upgrade/after-2.jpg";
 import ccuAfter3 from "@/assets/projects/commercial-courtyard-upgrade/after-3.jpg";
+import ccuBefore1 from "@/assets/projects/commercial-courtyard-upgrade/before-1.jpg";
 import ccuConstruction1 from "@/assets/projects/commercial-courtyard-upgrade/construction-1.jpg";
 
 import okpAfter1 from "@/assets/projects/outdoor-kitchen-project/after-1.jpg";
